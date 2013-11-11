@@ -25,7 +25,8 @@ namespace FPPaint.Classes.Tools
             {
                 if (graphics == null)
                 {
-                    throw new ArgumentNullException();
+                    MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 if (StartingPoint.Value.X > _endPoint.X && StartingPoint.Value.Y > _endPoint.Y)
                 {
@@ -44,9 +45,9 @@ namespace FPPaint.Classes.Tools
                     graphics.DrawRectangle(new Pen(PrimaryColor, Size), StartingPoint.Value.X, StartingPoint.Value.Y, (_endPoint.X - StartingPoint.Value.X), (_endPoint.Y - StartingPoint.Value.Y));
                 }
             }
-            catch (ArgumentNullException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Something went wrong" + ex.Message + "\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

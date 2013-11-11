@@ -195,7 +195,6 @@ namespace FPPaint.Forms
                 {
                     ((MultiPointTool)PaintingManager.currentTool).Paint(g, (int)Size.Value);
                 }
-                //((PictureBox)sender).Invalidate();
             }
         }
 

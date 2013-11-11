@@ -30,17 +30,20 @@ namespace FPPaint.Classes.Tools
             try
             {
                 if (graphics == null)
-                    throw new ArgumentNullException();
+                {
+                    MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 graphics.DrawLine(new Pen(PrimaryColor, Size), (PointF)StartingPoint, endPoint);
             }
             catch (InvalidOperationException ex)
             {
                 MessageBox.Show("Invalid operation!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentNullException ex)
-            {
-                MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //catch (ArgumentNullException ex)
+            //{
+            //    MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         #endregion

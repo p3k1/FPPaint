@@ -15,23 +15,24 @@ namespace FPPaint.Classes.Tools
         {
         }
 
-        public override void Paint(Graphics grahpics, int size)
+        public override void Paint(Graphics graphics, int size)
         {
             try
             {
-                if (grahpics == null)
+                if (graphics == null)
                 {
-                    throw new ArgumentNullException();
+                    MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 for (int i = 1; i < PointsToDraw.Count; i++)
                 {
-                    grahpics.DrawLine(new Pen(PrimaryColor, size), PointsToDraw[i - 1].X, PointsToDraw[i - 1].Y,
+                    graphics.DrawLine(new Pen(PrimaryColor, size), PointsToDraw[i - 1].X, PointsToDraw[i - 1].Y,
                                       PointsToDraw[i].X, PointsToDraw[i].Y);
                 }
             }
-            catch (ArgumentNullException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Something went wrong" + ex.Message + "\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace FPPaint.Classes.Tools
 {
@@ -14,16 +15,24 @@ namespace FPPaint.Classes.Tools
         {
         }
 
-        public override void Paint(Graphics grahpics, int size)
+        public override void Paint(Graphics graphics, int size)
         {
-            if (grahpics == null)
+            try
             {
-                throw new ArgumentNullException();
+                if (graphics == null)
+                {
+                    MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                for (int i = 1; i < PointsToDraw.Count; i++)
+                {
+                    graphics.DrawLine(new Pen(SecondaryColor, size), PointsToDraw[i - 1].X, PointsToDraw[i - 1].Y,
+                                      PointsToDraw[i].X, PointsToDraw[i].Y);
+                }
             }
-            for (int i = 1; i < PointsToDraw.Count; i++)
+            catch (Exception ex)
             {
-                grahpics.DrawLine(new Pen(SecondaryColor, size), PointsToDraw[i - 1].X, PointsToDraw[i - 1].Y,
-                                  PointsToDraw[i].X, PointsToDraw[i].Y);
+                MessageBox.Show("Something went wrong" + ex.Message + "\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
