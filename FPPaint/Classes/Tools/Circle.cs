@@ -19,17 +19,20 @@ namespace FPPaint.Classes.Tools
             try
             {
                 if (graphics == null)
-                    throw new ArgumentNullException();
-                graphics.DrawEllipse(new Pen(PrimaryColor, Size), StartingPoint.Value.X, StartingPoint.Value.Y, Math.Min(_endPoint.X, _endPoint.Y), Math.Min(_endPoint.X, _endPoint.Y));
+                { 
+                    MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;    
+                }
+                    graphics.DrawEllipse(new Pen(PrimaryColor, Size), StartingPoint.Value.X, StartingPoint.Value.Y, Math.Min(_endPoint.X, _endPoint.Y), Math.Min(_endPoint.X, _endPoint.Y));
             }
             catch (InvalidOperationException ex)
             {
                 MessageBox.Show("Invalid operation!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentNullException ex)
-            {
-                MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //catch (ArgumentNullException ex)
+            //{
+            //    MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
         }
     }
