@@ -14,7 +14,7 @@ namespace FPPaint.Forms
 {
     public partial class MainWindow : Form
     {
-        public PaintingManager PaintingManager = PaintingManager.GetInstance(new File(""), new Page(800, 600), new Fill(Color.Black, Color.White));
+        public PaintingManager PaintingManager = PaintingManager.GetInstance(new File(""), new Page(800, 600), new Pencil(Color.Black, Color.White));
 
         public MainWindow()
         {
@@ -195,7 +195,7 @@ namespace FPPaint.Forms
                 {
                     ((MultiPointTool)PaintingManager.currentTool).Paint(g, (int)Size.Value);
                 }
-                ((PictureBox)sender).Invalidate();
+                //((PictureBox)sender).Invalidate();
             }
         }
 
