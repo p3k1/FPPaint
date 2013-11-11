@@ -291,6 +291,7 @@ namespace FPPaint.Forms
             Picture.Width = Picture.Height;
             Picture.Height = tmpWidth;
             PaintingManager.page.Rotate(RotateFlipType.Rotate270FlipNone);
+            Picture.Refresh();
         }
 
         private void SetRectangle_Click(object sender, EventArgs e)
@@ -321,6 +322,7 @@ namespace FPPaint.Forms
             Picture.Width = Picture.Height;
             Picture.Height = tmpWidth;
             PaintingManager.page.Rotate(RotateFlipType.Rotate90FlipNone);
+            Picture.Refresh();
         }
     }
 }

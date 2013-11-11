@@ -90,6 +90,10 @@ namespace FPPaint.Classes
             }
         }
 
+        /// <summary>
+        /// Rotates the picture.
+        /// </summary>
+        /// <param name="type">Rotate type.</param>
         public void Rotate(RotateFlipType type)
         {
             Picture.RotateFlip(type);
