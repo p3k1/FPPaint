@@ -239,12 +239,16 @@ namespace FPPaint.Forms
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PaintingManager.page.Undo();
+            Picture.Width = PaintingManager.page.Picture.Width;
+            Picture.Height = PaintingManager.page.Picture.Height;
             this.Picture.Image = PaintingManager.page.Picture;
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PaintingManager.page.Redo();
+            Picture.Width = PaintingManager.page.Picture.Width;
+            Picture.Height = PaintingManager.page.Picture.Height;
             this.Picture.Image = PaintingManager.page.Picture;
         }
 
@@ -287,6 +291,7 @@ namespace FPPaint.Forms
 
         private void rotate90ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            PaintingManager.page.PrepareToPaint();
             int tmpWidth = Picture.Width;
             Picture.Width = Picture.Height;
             Picture.Height = tmpWidth;
@@ -312,12 +317,14 @@ namespace FPPaint.Forms
 
         private void rotate180ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            PaintingManager.page.PrepareToPaint();
             PaintingManager.page.Rotate(RotateFlipType.Rotate180FlipNone);
             Picture.Refresh();
         }
 
         private void rotate90RightToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            PaintingManager.page.PrepareToPaint();
             int tmpWidth = Picture.Width;
             Picture.Width = Picture.Height;
             Picture.Height = tmpWidth;
