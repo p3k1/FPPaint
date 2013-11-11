@@ -38,7 +38,7 @@ namespace FPPaint.Classes.Tools
             }
             catch (InvalidOperationException ex)
             {
-                MessageBox.Show("Invalid operation!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid operation!" + ex.Message , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //catch (ArgumentNullException ex)
             //{

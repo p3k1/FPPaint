@@ -11,7 +11,7 @@ namespace FPPaint.Classes.Tools
         {
         }
 
-        public override void Paint(Point _endPoint, Graphics graphics)
+        public override void Paint(Point endPoint, Graphics graphics)
         {
             try
             {
@@ -21,11 +21,11 @@ namespace FPPaint.Classes.Tools
                     return;
                 }
                 graphics.DrawEllipse(new Pen(PrimaryColor, Size), StartingPoint.Value.X, StartingPoint.Value.Y,
-                      (_endPoint.X - StartingPoint.Value.X), (_endPoint.Y - StartingPoint.Value.Y));
+                      (endPoint.X - StartingPoint.Value.X), (endPoint.Y - StartingPoint.Value.Y));
             }
             catch (InvalidOperationException ex)
             {
-                MessageBox.Show("Invalid operation!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid operation!" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //catch (ArgumentNullException ex)
             //{

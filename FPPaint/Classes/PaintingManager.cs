@@ -10,10 +10,10 @@ namespace FPPaint.Classes
     {
         #region Fields
 
-        public File file;
-        public Page page { get; set; }
-        public Tool currentTool { get; private set; }
-        private static PaintingManager PM = null;
+        public File File;
+        public Page Page { get; set; }
+        public Tool CurrentTool { get; private set; }
+        private static PaintingManager _pm;
 
         #endregion
 
@@ -21,9 +21,9 @@ namespace FPPaint.Classes
 
         private PaintingManager(File file, Page page, Tool currentTool)
         {
-            this.file = file;
-            this.page = page;
-            this.currentTool = currentTool;
+            File = file;
+            Page = page;
+            CurrentTool = currentTool;
         }
 
         #endregion
@@ -32,24 +32,20 @@ namespace FPPaint.Classes
 
         public static PaintingManager GetInstance(File file, Page page, Tool currentTool)
         {
-            if (PM == null)
-            {
-                PM = new PaintingManager(file, page, currentTool);
-            }
-            return PM;
+            return _pm ?? (_pm = new PaintingManager(file, page, currentTool));
         }
 
-        public void SetCurrentTool(Tool NewTool)
+        public void SetCurrentTool(Tool newTool)
         {
-            currentTool = NewTool;
+            CurrentTool = newTool;
         }
 
         public void CreateNewPicture(string path)
         {
             if (!string.IsNullOrEmpty(path))
             {
-                file = new File(path);
-                page.LoadPicture(path);
+                File = new File(path);
+                Page.LoadPicture(path);
             }
             else
             {

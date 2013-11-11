@@ -11,8 +11,8 @@ namespace FPPaint.Classes
     {
         #region Fields
 
-        private Stack<Bitmap> UndoStack = new Stack<Bitmap>();
-        private Stack<Bitmap> RedoStack = new Stack<Bitmap>();
+        private readonly Stack<Bitmap> _undoStack = new Stack<Bitmap>();
+        private readonly Stack<Bitmap> _redoStack = new Stack<Bitmap>();
         public Bitmap Picture = null;
 
         #endregion
@@ -21,12 +21,12 @@ namespace FPPaint.Classes
 
         public bool UndoStackEmpty
         {
-            get { return UndoStack.Count == 0; }
+            get { return _undoStack.Count == 0; }
         }
 
         public bool RedoStackEmpty
         {
-            get { return RedoStack.Count == 0; }
+            get { return _redoStack.Count == 0; }
         }
 
         #endregion
@@ -50,11 +50,11 @@ namespace FPPaint.Classes
         /// <summary>
         /// Loads a picture.
         /// </summary>
-        /// <param name="path">Path to the file.</param>
+        /// <param name="path">Path to the File.</param>
         public void LoadPicture(String path)
         {
             if (!String.IsNullOrEmpty(path))
-                using (var bmp = Bitmap.FromFile(path))
+                using (var bmp = Image.FromFile(path))
                     Picture = new Bitmap(bmp);
         }
 
@@ -63,7 +63,7 @@ namespace FPPaint.Classes
         /// </summary>
         public void PrepareToPaint()
         {
-            UndoStack.Push((Bitmap)Picture.Clone());
+            _undoStack.Push((Bitmap)Picture.Clone());
         }
 
         /// <summary>
@@ -71,10 +71,10 @@ namespace FPPaint.Classes
         /// </summary>
         public void Undo()
         {
-            if (UndoStack.Count > 0)
+            if (_undoStack.Count > 0)
             {
-                RedoStack.Push((Bitmap)Picture.Clone());
-                Picture = UndoStack.Pop();
+                _redoStack.Push((Bitmap)Picture.Clone());
+                Picture = _undoStack.Pop();
             }
         }
 
@@ -83,10 +83,10 @@ namespace FPPaint.Classes
         /// </summary>
         public void Redo()
         {
-            if (RedoStack.Count > 0)
+            if (_redoStack.Count > 0)
             {
-                UndoStack.Push((Bitmap)Picture.Clone());
-                Picture = RedoStack.Pop();
+                _undoStack.Push((Bitmap)Picture.Clone());
+                Picture = _redoStack.Pop();
             }
         }
 

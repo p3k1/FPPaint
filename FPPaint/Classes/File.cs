@@ -4,7 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
-namespace FPPaint.Classes.Tools
+namespace FPPaint.Classes
 {
     /// <summary>
     /// Class responsible for actions on files.
@@ -13,31 +13,31 @@ namespace FPPaint.Classes.Tools
     {
         #region Fields
 
-        private bool IsFileNew;
-        private bool IsModified = false;
-        private string Path = string.Empty;
+        public bool IsFileNew;
+        public bool IsModified = false;
+        public string Path = string.Empty;
 
         #endregion
 
         #region Properties
 
-        public string Path1
-        {
-            get { return Path; }
-            set { Path = value; }
-        }
+        //public string Path1
+        //{
+        //    get { return Path; }
+        //    set { Path = value; }
+        //}
 
-        public bool IsFileNew1
-        {
-            get { return IsFileNew; }
-            set { IsFileNew = value; }
-        }
+        //public bool IsFileNew1
+        //{
+        //    get { return IsFileNew; }
+        //    set { IsFileNew = value; }
+        //}
 
-        public bool IsModified1
-        {
-            get { return IsModified; }
-            set { IsModified = value; }
-        }
+        //public bool IsModified1
+        //{
+        //    get { return IsModified; }
+        //    set { IsModified = value; }
+        //}
 
         public string Name
         {
@@ -45,8 +45,7 @@ namespace FPPaint.Classes.Tools
             {
                 if (IsFileNew)
                     return "New File";
-                else
-                    return Path;
+                return Path;
             }
             set
             {
@@ -83,33 +82,32 @@ namespace FPPaint.Classes.Tools
         /// <param name="picture">Picture to save.</param>
         public bool SaveFile(Bitmap picture)
         {
-            if (IsFileNew1 || IsModified1)
+            if (IsFileNew || IsModified)
             {
                 try
                 {
-                    if (string.IsNullOrEmpty(Path1))
+                    if (string.IsNullOrEmpty(Path))
                     {
-                        var saveFileDialog = new SaveFileDialog();
-                        saveFileDialog.Filter = "BMP | *.BMP";
+                        var saveFileDialog = new SaveFileDialog {Filter = "BMP bitmap| *.BMP"};
                         if (DialogResult.OK == saveFileDialog.ShowDialog())
                         {
                             if (!string.IsNullOrEmpty(saveFileDialog.FileName))
-                                Path1 = saveFileDialog.FileName;
+                                Path = saveFileDialog.FileName;
                         }
                         else
                             return false;
                     }
 
-                    using (MemoryStream memory = new MemoryStream())
-                    using (FileStream fs = new FileStream(Path1, FileMode.Create, FileAccess.ReadWrite, FileShare.Delete))
+                    using (var memory = new MemoryStream())
+                    using (var fs = new FileStream(Path, FileMode.Create, FileAccess.ReadWrite, FileShare.Delete))
                     {
                         picture.Save(memory, ImageFormat.Bmp);
                         byte[] bytes = memory.ToArray();
                         fs.Write(bytes, 0, bytes.Length);
                     }
                     
-                    IsModified1 = false;
-                    IsFileNew1 = false;
+                    IsModified = false;
+                    IsFileNew = false;
                     return true;
                 }
                 catch (Exception ex)

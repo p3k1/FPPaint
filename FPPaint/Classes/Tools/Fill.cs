@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -52,7 +49,7 @@ namespace FPPaint.Classes.Tools
                     Point cur = check.First.Value;
                     check.RemoveFirst();
 
-                    foreach (Point off in new Point[] {
+                    foreach (Point off in new[] {
                 new Point(0, -1), new Point(0, 1), 
                 new Point(-1, 0), new Point(1, 0)})
                     {
