@@ -39,6 +39,10 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.rotate90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotate90RightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotate180ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WorkingAreaPanel = new System.Windows.Forms.Panel();
             this.Picture = new System.Windows.Forms.PictureBox();
@@ -55,10 +59,6 @@
             this.Size = new System.Windows.Forms.NumericUpDown();
             this.PrimaryColor = new System.Windows.Forms.Button();
             this.SecondaryColor = new System.Windows.Forms.Button();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.rotate90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rotate90RightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rotate180ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.WorkingAreaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
@@ -154,6 +154,30 @@
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.redoToolStripMenuItem.Text = "Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
+            // 
+            // rotate90ToolStripMenuItem
+            // 
+            this.rotate90ToolStripMenuItem.Name = "rotate90ToolStripMenuItem";
+            this.rotate90ToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rotate90ToolStripMenuItem.Text = "Rotate 90° left";
+            this.rotate90ToolStripMenuItem.Click += new System.EventHandler(this.rotate90ToolStripMenuItem_Click);
+            // 
+            // rotate90RightToolStripMenuItem
+            // 
+            this.rotate90RightToolStripMenuItem.Name = "rotate90RightToolStripMenuItem";
+            this.rotate90RightToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rotate90RightToolStripMenuItem.Text = "Rotate 90° right";
+            // 
+            // rotate180ToolStripMenuItem
+            // 
+            this.rotate180ToolStripMenuItem.Name = "rotate180ToolStripMenuItem";
+            this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rotate180ToolStripMenuItem.Text = "Rotate 180°";
             // 
             // aboutToolStripMenuItem
             // 
@@ -340,30 +364,6 @@
             this.SecondaryColor.UseVisualStyleBackColor = false;
             this.SecondaryColor.Click += new System.EventHandler(this.SecondaryColor_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
-            // 
-            // rotate90ToolStripMenuItem
-            // 
-            this.rotate90ToolStripMenuItem.Name = "rotate90ToolStripMenuItem";
-            this.rotate90ToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.rotate90ToolStripMenuItem.Text = "Rotate 90° left";
-            this.rotate90ToolStripMenuItem.Click += new System.EventHandler(this.rotate90ToolStripMenuItem_Click);
-            // 
-            // rotate90RightToolStripMenuItem
-            // 
-            this.rotate90RightToolStripMenuItem.Name = "rotate90RightToolStripMenuItem";
-            this.rotate90RightToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.rotate90RightToolStripMenuItem.Text = "Rotate 90° right";
-            // 
-            // rotate180ToolStripMenuItem
-            // 
-            this.rotate180ToolStripMenuItem.Name = "rotate180ToolStripMenuItem";
-            this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.rotate180ToolStripMenuItem.Text = "Rotate 180°";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,6 +377,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "FP Paint";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResizeEnd += new System.EventHandler(this.MainWindow_ResizeEnd);
             this.menuStrip1.ResumeLayout(false);

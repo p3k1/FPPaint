@@ -131,7 +131,7 @@ namespace FPPaint.Forms
                 }
                 if (PaintingManager.currentTool is InstantTool)
                 {
-                    ((InstantTool)PaintingManager.currentTool).Paint(PaintingManager.page.Picture, e.Location.X, e.Location.Y, PaintingManager.currentTool.PrimaryColor, PaintingManager.page.Picture.GetPixel(MousePosition.X, MousePosition.Y));
+                    ((InstantTool)PaintingManager.currentTool).Paint(PaintingManager.page.Picture, e.Location.X, e.Location.Y, PaintingManager.currentTool.PrimaryColor, PaintingManager.page.Picture.GetPixel(e.Location.X, e.Location.Y));
                 }
                 if (PaintingManager.currentTool is MultiPointTool)
                 {
@@ -140,7 +140,7 @@ namespace FPPaint.Forms
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message + exception.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -164,7 +164,7 @@ namespace FPPaint.Forms
                                                                       e.Location.Y,
                                                                       PaintingManager.currentTool.PrimaryColor,
                                                                       PaintingManager.page.Picture.GetPixel(
-                                                                          MousePosition.X, MousePosition.Y));
+                                                                          e.Location.X, e.Location.Y));
                     Picture.Invalidate();
                 }
 
@@ -175,7 +175,7 @@ namespace FPPaint.Forms
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message + exception.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -208,7 +208,6 @@ namespace FPPaint.Forms
             {
                 ((MultiPointTool)PaintingManager.currentTool).PointsToDraw.Add(e.Location);
                 Picture.Invalidate();
-                
             }
             if (PaintingManager.currentTool.InUse && e.Button == MouseButtons.Left)
             {
@@ -301,6 +300,10 @@ namespace FPPaint.Forms
         {
             PaintingManager.SetCurrentTool(new Pencil(PaintingManager.currentTool.PrimaryColor, PaintingManager.currentTool.SecondaryColor));
             Picture.Cursor = Cursors.Cross;
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }

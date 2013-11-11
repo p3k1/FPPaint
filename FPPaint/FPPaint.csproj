@@ -102,7 +102,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Graphics\circle45.png" />
+    <Content Include="Graphics\fill45.png" />
+    <Content Include="Graphics\line45.png" />
     <Content Include="Graphics\Paint.ico" />
+    <Content Include="Graphics\pencil45.png" />
+    <Content Include="Graphics\rectangle45.png" />
+    <Content Include="Graphics\rubber45.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
