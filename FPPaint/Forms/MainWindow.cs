@@ -287,7 +287,10 @@ namespace FPPaint.Forms
 
         private void rotate90ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            int tmpWidth = Picture.Width;
+            Picture.Width = Picture.Height;
+            Picture.Height = tmpWidth;
+            PaintingManager.page.Rotate(RotateFlipType.Rotate270FlipNone);
         }
 
         private void SetRectangle_Click(object sender, EventArgs e)
@@ -304,6 +307,20 @@ namespace FPPaint.Forms
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
+        }
+
+        private void rotate180ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaintingManager.page.Rotate(RotateFlipType.Rotate180FlipNone);
+            Picture.Refresh();
+        }
+
+        private void rotate90RightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int tmpWidth = Picture.Width;
+            Picture.Width = Picture.Height;
+            Picture.Height = tmpWidth;
+            PaintingManager.page.Rotate(RotateFlipType.Rotate90FlipNone);
         }
     }
 }

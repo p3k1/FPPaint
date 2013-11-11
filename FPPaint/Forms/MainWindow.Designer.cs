@@ -172,12 +172,14 @@
             this.rotate90RightToolStripMenuItem.Name = "rotate90RightToolStripMenuItem";
             this.rotate90RightToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rotate90RightToolStripMenuItem.Text = "Rotate 90° right";
+            this.rotate90RightToolStripMenuItem.Click += new System.EventHandler(this.rotate90RightToolStripMenuItem_Click);
             // 
             // rotate180ToolStripMenuItem
             // 
             this.rotate180ToolStripMenuItem.Name = "rotate180ToolStripMenuItem";
             this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rotate180ToolStripMenuItem.Text = "Rotate 180°";
+            this.rotate180ToolStripMenuItem.Click += new System.EventHandler(this.rotate180ToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 

@@ -90,6 +90,11 @@ namespace FPPaint.Classes
             }
         }
 
+        public void Rotate(RotateFlipType type)
+        {
+            Picture.RotateFlip(type);
+        }
+
         #endregion
     }
 }
