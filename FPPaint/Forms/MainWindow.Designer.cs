@@ -52,7 +52,7 @@
             this.SetCircle = new System.Windows.Forms.Button();
             this.SetRectangle = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.ToolsAndColors = new System.Windows.Forms.Panel();
             this.SetRubber = new System.Windows.Forms.Button();
             this.SetFill = new System.Windows.Forms.Button();
             this.SizeLabel = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@
             this.menuStrip1.SuspendLayout();
             this.WorkingAreaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.ToolsAndColors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Size)).BeginInit();
             this.SuspendLayout();
             // 
@@ -275,24 +275,24 @@
             this.button6.Text = "button6";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // ToolsAndColors
             // 
-            this.panel3.Controls.Add(this.SetRubber);
-            this.panel3.Controls.Add(this.SetFill);
-            this.panel3.Controls.Add(this.SizeLabel);
-            this.panel3.Controls.Add(this.Size);
-            this.panel3.Controls.Add(this.PrimaryColor);
-            this.panel3.Controls.Add(this.SecondaryColor);
-            this.panel3.Controls.Add(this.SetRectangle);
-            this.panel3.Controls.Add(this.button6);
-            this.panel3.Controls.Add(this.SetEllipse);
-            this.panel3.Controls.Add(this.SetCircle);
-            this.panel3.Controls.Add(this.SetLine);
-            this.panel3.Controls.Add(this.Pencil);
-            this.panel3.Location = new System.Drawing.Point(1, 24);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(114, 663);
-            this.panel3.TabIndex = 8;
+            this.ToolsAndColors.Controls.Add(this.SetRubber);
+            this.ToolsAndColors.Controls.Add(this.SetFill);
+            this.ToolsAndColors.Controls.Add(this.SizeLabel);
+            this.ToolsAndColors.Controls.Add(this.Size);
+            this.ToolsAndColors.Controls.Add(this.PrimaryColor);
+            this.ToolsAndColors.Controls.Add(this.SecondaryColor);
+            this.ToolsAndColors.Controls.Add(this.SetRectangle);
+            this.ToolsAndColors.Controls.Add(this.button6);
+            this.ToolsAndColors.Controls.Add(this.SetEllipse);
+            this.ToolsAndColors.Controls.Add(this.SetCircle);
+            this.ToolsAndColors.Controls.Add(this.SetLine);
+            this.ToolsAndColors.Controls.Add(this.Pencil);
+            this.ToolsAndColors.Location = new System.Drawing.Point(1, 24);
+            this.ToolsAndColors.Name = "ToolsAndColors";
+            this.ToolsAndColors.Size = new System.Drawing.Size(114, 663);
+            this.ToolsAndColors.TabIndex = 8;
             // 
             // SetRubber
             // 
@@ -349,7 +349,7 @@
             // 
             this.PrimaryColor.BackColor = System.Drawing.Color.Black;
             this.PrimaryColor.CausesValidation = false;
-            this.PrimaryColor.Location = new System.Drawing.Point(17, 284);
+            this.PrimaryColor.Location = new System.Drawing.Point(17, 590);
             this.PrimaryColor.Name = "PrimaryColor";
             this.PrimaryColor.Size = new System.Drawing.Size(43, 43);
             this.PrimaryColor.TabIndex = 10;
@@ -359,7 +359,7 @@
             // SecondaryColor
             // 
             this.SecondaryColor.BackColor = System.Drawing.Color.White;
-            this.SecondaryColor.Location = new System.Drawing.Point(46, 310);
+            this.SecondaryColor.Location = new System.Drawing.Point(46, 616);
             this.SecondaryColor.Name = "SecondaryColor";
             this.SecondaryColor.Size = new System.Drawing.Size(43, 43);
             this.SecondaryColor.TabIndex = 11;
@@ -372,7 +372,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1206, 687);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.ToolsAndColors);
             this.Controls.Add(this.WorkingAreaPanel);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -386,8 +386,8 @@
             this.menuStrip1.PerformLayout();
             this.WorkingAreaPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.ToolsAndColors.ResumeLayout(false);
+            this.ToolsAndColors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Size)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -416,7 +416,7 @@
         private System.Windows.Forms.Button SetCircle;
         private System.Windows.Forms.Button SetRectangle;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel ToolsAndColors;
         private System.Windows.Forms.Label SizeLabel;
         private System.Windows.Forms.NumericUpDown Size;
         private System.Windows.Forms.Button PrimaryColor;
