@@ -30,7 +30,7 @@ namespace FPPaint.Classes
 
         #region Methods
 
-        public static PaintingManager GetInstance(File file, Page page, Tool currentTool)
+        public static PaintingManager Instance(File file, Page page, Tool currentTool)
         {
             return _pm ?? (_pm = new PaintingManager(file, page, currentTool));
         }

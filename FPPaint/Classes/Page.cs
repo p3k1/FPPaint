@@ -122,7 +122,7 @@ namespace FPPaint.Classes
             }
         }
 
-        public ~Page()
+        ~Page()
         {
             Dispose(false);
         }

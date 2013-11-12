@@ -8,7 +8,7 @@ namespace FPPaint.Forms
 {
     public partial class MainWindow : Form
     {
-        public static PaintingManager PaintingManager = PaintingManager.GetInstance(new File(""), new Page(800, 600),
+        public static PaintingManager PaintingManager = PaintingManager.Instance(new File(""), new Page(800, 600),
                                                                                     new Pencil(Color.Black, Color.White));
 
         private bool isRightClicked;
