@@ -40,7 +40,7 @@
             // 
             // Width
             // 
-            this.Width.Location = new System.Drawing.Point(101, 61);
+            this.Width.Location = new System.Drawing.Point(100, 22);
             this.Width.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -63,7 +63,7 @@
             // WidthLabel
             // 
             this.WidthLabel.AutoSize = true;
-            this.WidthLabel.Location = new System.Drawing.Point(44, 61);
+            this.WidthLabel.Location = new System.Drawing.Point(43, 22);
             this.WidthLabel.Name = "WidthLabel";
             this.WidthLabel.Size = new System.Drawing.Size(35, 13);
             this.WidthLabel.TabIndex = 10;
@@ -71,7 +71,7 @@
             // 
             // Height
             // 
-            this.Height.Location = new System.Drawing.Point(101, 23);
+            this.Height.Location = new System.Drawing.Point(100, 57);
             this.Height.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -95,7 +95,7 @@
             // HeightLabel
             // 
             this.HeightLabel.AutoSize = true;
-            this.HeightLabel.Location = new System.Drawing.Point(41, 25);
+            this.HeightLabel.Location = new System.Drawing.Point(40, 59);
             this.HeightLabel.Name = "HeightLabel";
             this.HeightLabel.Size = new System.Drawing.Size(38, 13);
             this.HeightLabel.TabIndex = 8;
@@ -104,10 +104,10 @@
             // OK
             // 
             this.OK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OK.Location = new System.Drawing.Point(110, 144);
+            this.OK.Location = new System.Drawing.Point(12, 144);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(75, 23);
-            this.OK.TabIndex = 7;
+            this.OK.TabIndex = 1;
             this.OK.Text = "OK";
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.OK_Click);
@@ -115,7 +115,7 @@
             // Cancel
             // 
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Location = new System.Drawing.Point(29, 144);
+            this.Cancel.Location = new System.Drawing.Point(125, 144);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(75, 23);
             this.Cancel.TabIndex = 6;

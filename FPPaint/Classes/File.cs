@@ -80,21 +80,12 @@ namespace FPPaint.Classes
                             return false;
                     }
 
-                    using (var memory = new MemoryStream())
-                    using (var fs = new FileStream(Path, FileMode.Create, FileAccess.ReadWrite, FileShare.Delete))
-                    {
-                        picture.Save(memory, ImageFormat.Bmp);
-                        byte[] bytes = memory.ToArray();
-                        fs.Write(bytes, 0, bytes.Length);
-                    }
-                    
-                    IsModified = false;
-                    IsFileNew = false;
+                    SaveFileToDisc(picture);
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Something went wrong ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             return false;
@@ -113,21 +104,26 @@ namespace FPPaint.Classes
                 else
                     return;
 
-                using (var memory = new MemoryStream())
-                using (var fs = new FileStream(Path, FileMode.Create, FileAccess.ReadWrite, FileShare.Delete))
-                {
-                    picture.Save(memory, ImageFormat.Bmp);
-                    byte[] bytes = memory.ToArray();
-                    fs.Write(bytes, 0, bytes.Length);
-                }
-
-                IsModified = false;
-                IsFileNew = false;
+                SaveFileToDisc(picture);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Something went wrong ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void SaveFileToDisc(Bitmap picture)
+        {
+            using (var memory = new MemoryStream())
+            using (var fs = new FileStream(Path, FileMode.Create, FileAccess.ReadWrite, FileShare.Delete))
+            {
+                picture.Save(memory, ImageFormat.Bmp);
+                byte[] bytes = memory.ToArray();
+                fs.Write(bytes, 0, bytes.Length);
+            }
+
+            IsModified = false;
+            IsFileNew = false;
         }
 
         #endregion

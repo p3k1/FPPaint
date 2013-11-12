@@ -31,14 +31,17 @@ namespace FPPaint.Classes.Tools
                 if (StartingPoint.Value.X > endPoint.X && StartingPoint.Value.Y > endPoint.Y)
                 {
                     graphics.DrawRectangle(new Pen(isRightClicked ? SecondaryColor: PrimaryColor, Size), endPoint.X, endPoint.Y, (StartingPoint.Value.X - endPoint.X), (StartingPoint.Value.Y - endPoint.Y));
+                    return;
                 }
                 if (StartingPoint.Value.X < endPoint.X && StartingPoint.Value.Y > endPoint.Y)
                 {
                     graphics.DrawRectangle(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), StartingPoint.Value.X, endPoint.Y, (endPoint.X - StartingPoint.Value.X), (StartingPoint.Value.Y - endPoint.Y));
+                    return;
                 }
                 if (StartingPoint.Value.X > endPoint.X && StartingPoint.Value.Y < endPoint.Y)
                 {
                     graphics.DrawRectangle(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), endPoint.X, StartingPoint.Value.Y, (StartingPoint.Value.X - endPoint.X), (endPoint.Y - StartingPoint.Value.Y));
+                    return;
                 }
                 else
                 {
@@ -47,7 +50,7 @@ namespace FPPaint.Classes.Tools
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong" + ex.Message + "\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Something went wrong " + ex.Message + "\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FPPaint.Classes.File" Collapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIBQAAAAAQAAAAAAAAABBAAAAgAAAA=</HashCode>
+      <FileName>Classes\File.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.MouseHandler" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\MouseHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Page" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICgAAAADAEBAAAAAAIAAABEAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Page.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FPPaint.Classes.PaintingManager" Collapsed="true">
+    <Position X="22.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAABAAAAAQAEEAAAAAAAAABAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\PaintingManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.PaletteHelper" Collapsed="true">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Classes\PaletteHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Forms.MenuHelper" Collapsed="true">
+    <Position X="22.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAFAAAEAAAAAABEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\MenuHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Forms.AboutForm" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kIACAAgAACAgCAUAAACAAAADAAAAEIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\AboutForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Forms.MainWindow" Collapsed="true">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RSSAlgkm4CIIoACzAGCigIEKKCgCRICAA1AQhDRAkkE=</HashCode>
+      <FileName>Forms\MainWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Forms.NewItemForm" Collapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAARCAQAgQAQACAAEACAAAAAgAAAAABCAAAAAA=</HashCode>
+      <FileName>Forms\NewItemForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.Ellipse" Collapsed="true">
+    <Position X="14.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Classes\Tools\Ellipse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.Fill" Collapsed="true">
+    <Position X="3.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Classes\Tools\Fill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.InstantTool" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Classes\Tools\InstantTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.Line" Collapsed="true">
+    <Position X="12.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Classes\Tools\Line.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.MultiPointTool" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAA=</HashCode>
+      <FileName>Classes\Tools\MultiPointTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.Pencil" Collapsed="true">
+    <Position X="8" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Classes\Tools\Pencil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.Rectangle" Collapsed="true">
+    <Position X="10.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Classes\Tools\Rectangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.Rubber" Collapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Classes\Tools\Rubber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.Tool" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAgA=</HashCode>
+      <FileName>Classes\Tools\Tool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Classes.Tools.TwoPointTool" Collapsed="true">
+    <Position X="12.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAABAAAAAAAAAIAAgAAIAAA=</HashCode>
+      <FileName>Classes\Tools\TwoPointTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Program" Collapsed="true">
+    <Position X="19" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Properties.Resources" Collapsed="true">
+    <Position X="20.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPPaint.Properties.Settings" Collapsed="true">
+    <Position X="22.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
