@@ -10,32 +10,52 @@ namespace FPPaint.Forms
     {
         public PaintingManager PaintingManager = PaintingManager.GetInstance(new File(""), new Page(800, 600), new Pencil(Color.Black, Color.White));
 
+        public Panel ToolsAndColorsProp
+        {
+            get { return ToolsAndColors; }
+            set { ToolsAndColors = value; }
+        }
+
+        public Button PrimaryColorProp
+        {
+            get { return PrimaryColor; }
+            set { PrimaryColor = value; }
+        }
+
+        public Button SecondaryColorProp
+        {
+            get { return SecondaryColor; }
+            set { SecondaryColor = value; }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
-            Color[] ColorList = new[]{Color.Black, Color.White ,Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.Orange, Color.Magenta, Color.Gray, Color.CornflowerBlue};
+            var PH = new PaletteHelper();
+            PH.CreatePalette(this);
+            //Color[] ColorList = new[]{Color.Black, Color.White ,Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.Orange, Color.Magenta, Color.Gray, Color.CornflowerBlue};
 
-            for (int i = 0; i < ColorList.GetLength(0); i++)
-            {
-                    var ToAdd = new Button();
-                    ToAdd.BackColor = ColorList[i];
-                    ToAdd.Size = new Size(35, 35);
-                    ToAdd.Location = new Point(20 + (i%2)* 40, 275 + 30 * (i - (i%2)));
-                    ToAdd.MouseUp += (sender, args) =>
-                    {
-                        if (args.Button == MouseButtons.Left)
-                        {
-                            PrimaryColor.BackColor = PaintingManager.CurrentTool.PrimaryColor = ((Button)sender).BackColor;
-                            return;
-                        }
-                        if (args.Button == MouseButtons.Right)
-                        {
-                            SecondaryColor.BackColor = PaintingManager.CurrentTool.SecondaryColor = ((Button)sender).BackColor;
-                        }
-                    };
-                    ToolsAndColors.Controls.Add(ToAdd);
-                
-            }
+            //for (int i = 0; i < ColorList.GetLength(0); i++)
+            //{
+            //        var ToAdd = new Button();
+            //        ToAdd.BackColor = ColorList[i];
+            //        ToAdd.Size = new Size(35, 35);
+            //        ToAdd.Location = new Point(20 + (i%2)* 40, 275 + 30 * (i - (i%2)));
+            //        ToAdd.MouseUp += (sender, args) =>
+            //        {
+            //            if (args.Button == MouseButtons.Left)
+            //            {
+            //                PrimaryColor.BackColor = PaintingManager.CurrentTool.PrimaryColor = ((Button)sender).BackColor;
+            //                return;
+            //            }
+            //            if (args.Button == MouseButtons.Right)
+            //            {
+            //                SecondaryColor.BackColor = PaintingManager.CurrentTool.SecondaryColor = ((Button)sender).BackColor;
+            //            }
+            //        };
+            //        ToolsAndColors.Controls.Add(ToAdd);
+
+            //}
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
