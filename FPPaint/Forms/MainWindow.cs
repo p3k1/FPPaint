@@ -19,8 +19,8 @@ namespace FPPaint.Forms
             {
                     var ToAdd = new Button();
                     ToAdd.BackColor = ColorList[i];
-                    ToAdd.Size = new Size(20, 20);
-                    ToAdd.Location = new Point( (i%2 + 1)* 20, 275 + 25 * i);
+                    ToAdd.Size = new Size(35, 35);
+                    ToAdd.Location = new Point(20 + (i%2)* 40, 275 + 30 * (i - (i%2)));
                     ToAdd.MouseUp += (sender, args) =>
                     {
                         if (args.Button == MouseButtons.Left)
