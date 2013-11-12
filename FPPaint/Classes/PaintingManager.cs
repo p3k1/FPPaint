@@ -10,8 +10,8 @@ namespace FPPaint.Classes
     {
         #region Fields
 
-        public File File;
-        public Page Page { get; set; }
+        public static File File;
+        public static Page Page { get; set; }
         public Tool CurrentTool { get; private set; }
         private static PaintingManager _pm;
 

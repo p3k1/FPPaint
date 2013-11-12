@@ -209,7 +209,6 @@
             this.Picture.Size = new System.Drawing.Size(1, 1);
             this.Picture.TabIndex = 0;
             this.Picture.TabStop = false;
-            this.Picture.Click += new System.EventHandler(this.Picture_Click);
             this.Picture.Paint += new System.Windows.Forms.PaintEventHandler(this.Picture_Paint);
             this.Picture.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Picture_MouseDown);
             this.Picture.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Picture_MouseMove);
@@ -381,7 +380,6 @@
             this.Text = "FP Paint";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.ResizeEnd += new System.EventHandler(this.MainWindow_ResizeEnd);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.WorkingAreaPanel.ResumeLayout(false);

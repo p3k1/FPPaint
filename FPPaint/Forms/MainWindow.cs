@@ -8,7 +8,7 @@ namespace FPPaint.Forms
 {
     public partial class MainWindow : Form
     {
-        public PaintingManager PaintingManager = PaintingManager.GetInstance(new File(""), new Page(800, 600), new Pencil(Color.Black, Color.White));
+        public static PaintingManager PaintingManager = PaintingManager.GetInstance(new File(""), new Page(800, 600), new Pencil(Color.Black, Color.White));
 
         public Panel ToolsAndColorsProp
         {
@@ -26,6 +26,12 @@ namespace FPPaint.Forms
         {
             get { return SecondaryColor; }
             set { SecondaryColor = value; }
+        }
+
+        public PictureBox PictureProp
+        {
+            get { return Picture; }
+            set { Picture = value; }
         }
 
         public MainWindow()
@@ -46,27 +52,23 @@ namespace FPPaint.Forms
                 g.Clear(Color.White);
             Picture.Refresh();
         }
-
-        private void MainWindow_ResizeEnd(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (PaintingManager.File.IsModified)
-            {
-                DialogResult result = MessageBox.Show("File was changed. Do you want to save it?", "Question", MessageBoxButtons.YesNoCancel,
-                                MessageBoxIcon.Question);
-                if (result == DialogResult.Cancel)
-                    return;
-                if (result == DialogResult.Yes)
-                    if (!PaintingManager.File.SaveFile(PaintingManager.Page.Picture))
-                        return;
+            MenuHelper.ExitActions(this);
+            //if (PaintingManager.File.IsModified)
+            //{
+            //    DialogResult result = MessageBox.Show("File was changed. Do you want to save it?", "Question", MessageBoxButtons.YesNoCancel,
+            //                    MessageBoxIcon.Question);
+            //    if (result == DialogResult.Cancel)
+            //        return;
+            //    if (result == DialogResult.Yes)
+            //        if (!PaintingManager.File.SaveFile(PaintingManager.Page.Picture))
+            //            return;
 
-            }
-            Close();
-            Application.Exit();
+            //}
+            //Close();
+            //Application.Exit();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -286,11 +288,6 @@ namespace FPPaint.Forms
         private void SetFill_Click(object sender, EventArgs e)
         {
             PaintingManager.SetCurrentTool(new Fill(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor));
-        }
-
-        private void Picture_Click(object sender, EventArgs e)
-        {
-           
         }
 
         private void rotate90ToolStripMenuItem_Click(object sender, EventArgs e)

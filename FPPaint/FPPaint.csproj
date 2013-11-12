@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\PaletteHelper.cs" />
+    <Compile Include="Classes\MenuHelper.cs" />
     <Compile Include="Classes\Tools\MultiPointTool.cs" />
     <Compile Include="Classes\Page.cs" />
     <Compile Include="Classes\Tools\Rubber.cs" />
