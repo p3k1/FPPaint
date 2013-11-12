@@ -91,6 +91,10 @@ namespace FPPaint.Classes
             return false;
         }
 
+        /// <summary>
+        /// Saves as.
+        /// </summary>
+        /// <param name="picture">Picture to save.</param>
         public bool SaveAs(Bitmap picture)
         {
             try

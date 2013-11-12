@@ -6,6 +6,9 @@ using FPPaint.Forms;
 
 namespace FPPaint.Forms
 {
+    /// <summary>
+    /// Contains helper methods to reduce MainWindow.cs size.
+    /// </summary>
     static class MenuHelper
     {
         public static void ExitActions(MainWindow mainWindow)

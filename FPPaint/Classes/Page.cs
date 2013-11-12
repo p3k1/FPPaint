@@ -103,6 +103,7 @@ namespace FPPaint.Classes
         #endregion
 
         #region IDisposable implementation
+        //According to http://msdn.microsoft.com/en-us/library/ms244737.aspx
 
         public void Dispose()
         {
@@ -119,6 +120,11 @@ namespace FPPaint.Classes
                 }
                 _disposed = true;
             }
+        }
+
+        public ~Page()
+        {
+            Dispose(false);
         }
 
         #endregion
