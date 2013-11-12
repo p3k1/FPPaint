@@ -91,7 +91,7 @@ namespace FPPaint.Classes
             return false;
         }
 
-        public void SaveAs(Bitmap picture)
+        public bool SaveAs(Bitmap picture)
         {
             try
             {
@@ -102,9 +102,10 @@ namespace FPPaint.Classes
                         Path = saveFileDialog.FileName;
                 }
                 else
-                    return;
+                    return false;
 
                 SaveFileToDisc(picture);
+                return true;
             }
             catch (Exception ex)
             {

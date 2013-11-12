@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\MouseHandler.cs" />
     <Compile Include="Classes\PaletteHelper.cs" />
     <Compile Include="Classes\MenuHelper.cs" />
     <Compile Include="Classes\Tools\MultiPointTool.cs" />

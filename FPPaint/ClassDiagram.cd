@@ -7,13 +7,6 @@
       <FileName>Classes\File.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FPPaint.Classes.MouseHandler" Collapsed="true">
-    <Position X="17.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\MouseHandler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="FPPaint.Classes.Page" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="20.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
