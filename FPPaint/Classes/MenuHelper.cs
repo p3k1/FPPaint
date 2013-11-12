@@ -48,11 +48,13 @@ namespace FPPaint.Classes
                 mainWindow.PictureProp.Width = newItem.width;
                 mainWindow.PictureProp.Height = newItem.height;
                 PaintingManager.Page = new Page(newItem.width, newItem.height);
+                PaintingManager.File = new File("");
                 mainWindow.PictureProp.Image = PaintingManager.Page.Picture;
                 using (Graphics g = Graphics.FromImage(PaintingManager.Page.Picture))
                     g.Clear(Color.White);
                 mainWindow.PictureProp.Refresh();
             }
+            mainWindow.Text = "FP Paint - " + PaintingManager.File.Name;
         }
 
         public static void OpenActions(MainWindow mainWindow)
@@ -82,6 +84,7 @@ namespace FPPaint.Classes
                     mainWindow.PictureProp.Refresh();
                 }
             }
+            mainWindow.Text = "FP Paint - " + PaintingManager.File.Name;
         }
     }
 }

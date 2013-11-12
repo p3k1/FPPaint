@@ -100,6 +100,36 @@ namespace FPPaint.Classes
             return false;
         }
 
+        public void SaveAs(Bitmap picture)
+        {
+            try
+            {
+                var saveFileDialog = new SaveFileDialog { Filter = "BMP bitmap| *.BMP" };
+                if (DialogResult.OK == saveFileDialog.ShowDialog())
+                {
+                    if (!string.IsNullOrEmpty(saveFileDialog.FileName))
+                        Path = saveFileDialog.FileName;
+                }
+                else
+                    return;
+
+                using (var memory = new MemoryStream())
+                using (var fs = new FileStream(Path, FileMode.Create, FileAccess.ReadWrite, FileShare.Delete))
+                {
+                    picture.Save(memory, ImageFormat.Bmp);
+                    byte[] bytes = memory.ToArray();
+                    fs.Write(bytes, 0, bytes.Length);
+                }
+
+                IsModified = false;
+                IsFileNew = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         #endregion
     }
 }

@@ -49,9 +49,7 @@
             this.Pencil = new System.Windows.Forms.Button();
             this.SetLine = new System.Windows.Forms.Button();
             this.SetEllipse = new System.Windows.Forms.Button();
-            this.SetCircle = new System.Windows.Forms.Button();
             this.SetRectangle = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.ToolsAndColors = new System.Windows.Forms.Panel();
             this.SetRubber = new System.Windows.Forms.Button();
             this.SetFill = new System.Windows.Forms.Button();
@@ -93,29 +91,33 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -163,21 +165,24 @@
             // rotate90ToolStripMenuItem
             // 
             this.rotate90ToolStripMenuItem.Name = "rotate90ToolStripMenuItem";
-            this.rotate90ToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rotate90ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
+            this.rotate90ToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.rotate90ToolStripMenuItem.Text = "Rotate 90° left";
             this.rotate90ToolStripMenuItem.Click += new System.EventHandler(this.rotate90ToolStripMenuItem_Click);
             // 
             // rotate90RightToolStripMenuItem
             // 
             this.rotate90RightToolStripMenuItem.Name = "rotate90RightToolStripMenuItem";
-            this.rotate90RightToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rotate90RightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Right)));
+            this.rotate90RightToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.rotate90RightToolStripMenuItem.Text = "Rotate 90° right";
             this.rotate90RightToolStripMenuItem.Click += new System.EventHandler(this.rotate90RightToolStripMenuItem_Click);
             // 
             // rotate180ToolStripMenuItem
             // 
             this.rotate180ToolStripMenuItem.Name = "rotate180ToolStripMenuItem";
-            this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rotate180ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.rotate180ToolStripMenuItem.Text = "Rotate 180°";
             this.rotate180ToolStripMenuItem.Click += new System.EventHandler(this.rotate180ToolStripMenuItem_Click);
             // 
@@ -246,34 +251,15 @@
             this.SetEllipse.UseVisualStyleBackColor = true;
             this.SetEllipse.Click += new System.EventHandler(this.button3_Click);
             // 
-            // SetCircle
-            // 
-            this.SetCircle.Image = ((System.Drawing.Image)(resources.GetObject("SetCircle.Image")));
-            this.SetCircle.Location = new System.Drawing.Point(11, 66);
-            this.SetCircle.Name = "SetCircle";
-            this.SetCircle.Size = new System.Drawing.Size(45, 45);
-            this.SetCircle.TabIndex = 4;
-            this.SetCircle.UseVisualStyleBackColor = true;
-            this.SetCircle.Click += new System.EventHandler(this.SetCircle_Click);
-            // 
             // SetRectangle
             // 
             this.SetRectangle.Image = ((System.Drawing.Image)(resources.GetObject("SetRectangle.Image")));
-            this.SetRectangle.Location = new System.Drawing.Point(62, 117);
+            this.SetRectangle.Location = new System.Drawing.Point(11, 66);
             this.SetRectangle.Name = "SetRectangle";
             this.SetRectangle.Size = new System.Drawing.Size(45, 45);
             this.SetRectangle.TabIndex = 7;
             this.SetRectangle.UseVisualStyleBackColor = true;
             this.SetRectangle.Click += new System.EventHandler(this.SetRectangle_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(11, 117);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(45, 45);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // ToolsAndColors
             // 
@@ -284,9 +270,7 @@
             this.ToolsAndColors.Controls.Add(this.PrimaryColor);
             this.ToolsAndColors.Controls.Add(this.SecondaryColor);
             this.ToolsAndColors.Controls.Add(this.SetRectangle);
-            this.ToolsAndColors.Controls.Add(this.button6);
             this.ToolsAndColors.Controls.Add(this.SetEllipse);
-            this.ToolsAndColors.Controls.Add(this.SetCircle);
             this.ToolsAndColors.Controls.Add(this.SetLine);
             this.ToolsAndColors.Controls.Add(this.Pencil);
             this.ToolsAndColors.Location = new System.Drawing.Point(1, 24);
@@ -297,7 +281,7 @@
             // SetRubber
             // 
             this.SetRubber.Image = ((System.Drawing.Image)(resources.GetObject("SetRubber.Image")));
-            this.SetRubber.Location = new System.Drawing.Point(61, 168);
+            this.SetRubber.Location = new System.Drawing.Point(62, 117);
             this.SetRubber.Name = "SetRubber";
             this.SetRubber.Size = new System.Drawing.Size(45, 45);
             this.SetRubber.TabIndex = 15;
@@ -307,7 +291,7 @@
             // SetFill
             // 
             this.SetFill.Image = ((System.Drawing.Image)(resources.GetObject("SetFill.Image")));
-            this.SetFill.Location = new System.Drawing.Point(10, 168);
+            this.SetFill.Location = new System.Drawing.Point(11, 117);
             this.SetFill.Name = "SetFill";
             this.SetFill.Size = new System.Drawing.Size(45, 45);
             this.SetFill.TabIndex = 14;
@@ -317,7 +301,7 @@
             // SizeLabel
             // 
             this.SizeLabel.AutoSize = true;
-            this.SizeLabel.Location = new System.Drawing.Point(14, 234);
+            this.SizeLabel.Location = new System.Drawing.Point(14, 180);
             this.SizeLabel.Name = "SizeLabel";
             this.SizeLabel.Size = new System.Drawing.Size(27, 13);
             this.SizeLabel.TabIndex = 13;
@@ -325,7 +309,7 @@
             // 
             // Size
             // 
-            this.Size.Location = new System.Drawing.Point(62, 232);
+            this.Size.Location = new System.Drawing.Point(62, 178);
             this.Size.Maximum = new decimal(new int[] {
             20,
             0,
@@ -349,7 +333,7 @@
             // 
             this.PrimaryColor.BackColor = System.Drawing.Color.Black;
             this.PrimaryColor.CausesValidation = false;
-            this.PrimaryColor.Location = new System.Drawing.Point(17, 590);
+            this.PrimaryColor.Location = new System.Drawing.Point(18, 208);
             this.PrimaryColor.Name = "PrimaryColor";
             this.PrimaryColor.Size = new System.Drawing.Size(43, 43);
             this.PrimaryColor.TabIndex = 10;
@@ -359,7 +343,7 @@
             // SecondaryColor
             // 
             this.SecondaryColor.BackColor = System.Drawing.Color.White;
-            this.SecondaryColor.Location = new System.Drawing.Point(46, 616);
+            this.SecondaryColor.Location = new System.Drawing.Point(47, 234);
             this.SecondaryColor.Name = "SecondaryColor";
             this.SecondaryColor.Size = new System.Drawing.Size(43, 43);
             this.SecondaryColor.TabIndex = 11;
@@ -412,9 +396,7 @@
         private System.Windows.Forms.Button Pencil;
         private System.Windows.Forms.Button SetLine;
         private System.Windows.Forms.Button SetEllipse;
-        private System.Windows.Forms.Button SetCircle;
         private System.Windows.Forms.Button SetRectangle;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel ToolsAndColors;
         private System.Windows.Forms.Label SizeLabel;
         private System.Windows.Forms.NumericUpDown Size;
