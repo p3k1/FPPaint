@@ -26,7 +26,7 @@ namespace FPPaint.Forms
                 if (currentTool != null)
                 {
                     currentTool.Paint(PaintingManager.Page.Picture, e.Location.X, e.Location.Y,
-                                      PaintingManager.CurrentTool.PrimaryColor,
+                        isRightClicked? PaintingManager.CurrentTool.SecondaryColor: PaintingManager.CurrentTool.PrimaryColor,
                                       PaintingManager.Page.Picture.GetPixel(e.Location.X, e.Location.Y));
                 }
                 MultiPointTool multiPointTool = PaintingManager.CurrentTool as MultiPointTool;
@@ -64,7 +64,7 @@ namespace FPPaint.Forms
                 {
                     currentTool.Paint(PaintingManager.Page.Picture, e.Location.X,
                                       e.Location.Y,
-                                      PaintingManager.CurrentTool.PrimaryColor,
+                                      isRightClicked? PaintingManager.CurrentTool.SecondaryColor: PaintingManager.CurrentTool.PrimaryColor,
                                       PaintingManager.Page.Picture.GetPixel(
                                           e.Location.X, e.Location.Y));
                     Picture.Invalidate();
