@@ -40,10 +40,6 @@ namespace FPPaint.Classes.Tools
             {
                 MessageBox.Show("Invalid operation!" + ex.Message , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //catch (ArgumentNullException ex)
-            //{
-            //    MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
 
         #endregion

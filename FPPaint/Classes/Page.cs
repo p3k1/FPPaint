@@ -7,13 +7,14 @@ namespace FPPaint.Classes
     /// <summary>
     /// A class responsible for handling bitmap and undo/redo stacks.
     /// </summary>
-    public class Page
+    public class Page : IDisposable
     {
         #region Fields
 
         private readonly Stack<Bitmap> _undoStack = new Stack<Bitmap>();
         private readonly Stack<Bitmap> _redoStack = new Stack<Bitmap>();
         public Bitmap Picture = null;
+        private bool _disposed;
 
         #endregion
 
@@ -97,6 +98,27 @@ namespace FPPaint.Classes
         public void Rotate(RotateFlipType type)
         {
             Picture.RotateFlip(type);
+        }
+
+        #endregion
+
+        #region IDisposable implementation
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    Picture.Dispose();
+                }
+                _disposed = true;
+            }
         }
 
         #endregion
