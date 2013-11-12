@@ -4,10 +4,19 @@ using FPPaint.Forms;
 
 namespace FPPaint.Classes
 {
+    /// <summary>
+    /// Helper class creating color palette.
+    /// </summary>
     static class PaletteHelper
     {
-        private static readonly Color[] ColorList = new[] { Color.Black, Color.White, Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.Orange, Color.Magenta, Color.Gray, Color.CornflowerBlue };
+        private static readonly Color[] ColorList = new[] { Color.Black, Color.White, Color.Red, Color.Green, 
+                    Color.Blue, Color.Yellow, Color.Orange, Color.Magenta, Color.Gray, Color.CornflowerBlue };
 
+
+        /// <summary>
+        /// Creates color palette.
+        /// </summary>
+        /// <param name="MainWindow">Window to create palette on.</param>
         public static void CreatePalette(MainWindow MainWindow)
         {
          
