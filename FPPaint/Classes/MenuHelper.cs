@@ -102,10 +102,10 @@ namespace FPPaint.Forms
         public static void Rotate(MainWindow mainWindow, RotateFlipType type)
         {
             PaintingManager.Page.PrepareToPaint();
-            int tmpWidth = mainWindow.PictureProp.Width;
-            mainWindow.PictureProp.Width = mainWindow.PictureProp.Height;
-            mainWindow.PictureProp.Height = tmpWidth;
             PaintingManager.Page.Rotate(type);
+            //int tmpWidth = mainWindow.PictureProp.Width;
+            mainWindow.PictureProp.Width = PaintingManager.Page.Picture.Width;
+            mainWindow.PictureProp.Height = PaintingManager.Page.Picture.Height;
             mainWindow.PictureProp.Refresh();
         }
     }
