@@ -111,6 +111,7 @@ namespace FPPaint.Classes
             {
                 MessageBox.Show(ex.Message, "Something went wrong ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            return false;
         }
 
         private void SaveFileToDisc(Bitmap picture)
