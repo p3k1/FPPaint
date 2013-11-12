@@ -322,5 +322,19 @@ namespace FPPaint.Forms
             Text = "FP Paint - " + PaintingManager.File.Name;
         }
 
+        private void flipHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaintingManager.Page.PrepareToPaint();
+            PaintingManager.Page.Rotate(RotateFlipType.RotateNoneFlipY);
+            Picture.Refresh();
+        }
+
+        private void flipVerticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaintingManager.Page.PrepareToPaint();
+            PaintingManager.Page.Rotate(RotateFlipType.RotateNoneFlipX);
+            Picture.Refresh();
+        }
+
     }
 }

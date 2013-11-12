@@ -57,6 +57,9 @@
             this.Size = new System.Windows.Forms.NumericUpDown();
             this.PrimaryColor = new System.Windows.Forms.Button();
             this.SecondaryColor = new System.Windows.Forms.Button();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.flipHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flipVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.WorkingAreaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
@@ -135,7 +138,10 @@
             this.toolStripSeparator1,
             this.rotate90ToolStripMenuItem,
             this.rotate90RightToolStripMenuItem,
-            this.rotate180ToolStripMenuItem});
+            this.rotate180ToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.flipHorizontalToolStripMenuItem,
+            this.flipVerticalToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -350,6 +356,25 @@
             this.SecondaryColor.UseVisualStyleBackColor = false;
             this.SecondaryColor.Click += new System.EventHandler(this.SecondaryColor_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(215, 6);
+            // 
+            // flipHorizontalToolStripMenuItem
+            // 
+            this.flipHorizontalToolStripMenuItem.Name = "flipHorizontalToolStripMenuItem";
+            this.flipHorizontalToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.flipHorizontalToolStripMenuItem.Text = "Flip Horizontal";
+            this.flipHorizontalToolStripMenuItem.Click += new System.EventHandler(this.flipHorizontalToolStripMenuItem_Click);
+            // 
+            // flipVerticalToolStripMenuItem
+            // 
+            this.flipVerticalToolStripMenuItem.Name = "flipVerticalToolStripMenuItem";
+            this.flipVerticalToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.flipVerticalToolStripMenuItem.Text = "Flip Vertical";
+            this.flipVerticalToolStripMenuItem.Click += new System.EventHandler(this.flipVerticalToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,6 +386,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(500, 650);
             this.Name = "MainWindow";
             this.Text = "FP Paint";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
@@ -408,6 +434,9 @@
         private System.Windows.Forms.ToolStripMenuItem rotate90ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotate90RightToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotate180ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem flipHorizontalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem flipVerticalToolStripMenuItem;
     }
 }
 
