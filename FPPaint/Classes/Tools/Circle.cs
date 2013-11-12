@@ -23,7 +23,26 @@ namespace FPPaint.Classes.Tools
                     MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                graphics.DrawEllipse(new Pen(isRightClicked ? SecondaryColor: PrimaryColor , Size), StartingPoint.Value.X, StartingPoint.Value.Y, Math.Min(endPoint.X, endPoint.Y), Math.Min(endPoint.X, endPoint.Y));
+               .. graphics.DrawEllipse(new Pen(isRightClicked ? SecondaryColor: PrimaryColor , Size), StartingPoint.Value.X, StartingPoint.Value.Y, Math.Min(endPoint.X, endPoint.Y), Math.Min(endPoint.X, endPoint.Y));
+                if (StartingPoint.Value.X > endPoint.X && StartingPoint.Value.Y > endPoint.Y)
+                {
+                    graphics.DrawEllipse(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), new System.Drawing.Rectangle(endPoint.X, endPoint.Y, Math.Min((StartingPoint.Value.X - endPoint.X), (StartingPoint.Value.Y - endPoint.Y)), Math.Min((StartingPoint.Value.X - endPoint.X), (StartingPoint.Value.Y - endPoint.Y))));
+                    return;
+                }
+                if (StartingPoint.Value.X < endPoint.X && StartingPoint.Value.Y > endPoint.Y)
+                {
+                    graphics.DrawEllipse(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), new System.Drawing.Rectangle(StartingPoint.Value.X, endPoint.Y, Math.Min((endPoint.X - StartingPoint.Value.X), (StartingPoint.Value.Y - endPoint.Y)), Math.Min((endPoint.X - StartingPoint.Value.X), (StartingPoint.Value.Y - endPoint.Y))));
+                    return;
+                }
+                if (StartingPoint.Value.X > endPoint.X && StartingPoint.Value.Y < endPoint.Y)
+                {
+                    graphics.DrawEllipse(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), new System.Drawing.Rectangle(endPoint.X, StartingPoint.Value.Y, Math.Min((StartingPoint.Value.X - endPoint.X), (endPoint.Y - StartingPoint.Value.Y)),Math.Min((StartingPoint.Value.X - endPoint.X), (endPoint.Y - StartingPoint.Value.Y))));
+                }
+                else
+                {
+                    graphics.DrawEllipse(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), new System.Drawing.Rectangle(StartingPoint.Value.X, StartingPoint.Value.Y, Math.Min((endPoint.X - StartingPoint.Value.X), (endPoint.Y - StartingPoint.Value.Y)), Math.Min((endPoint.X - StartingPoint.Value.X), (endPoint.Y - StartingPoint.Value.Y))));
+                }
+            
             }
             catch (InvalidOperationException ex)
             {
