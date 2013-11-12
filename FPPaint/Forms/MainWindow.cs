@@ -199,5 +199,6 @@ namespace FPPaint.Forms
         {
             MenuHelper.Rotate(this, RotateFlipType.RotateNoneFlipX);
         }
+        
     }
 }

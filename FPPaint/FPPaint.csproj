@@ -117,7 +117,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Graphics\circle45.png" />
+    <Content Include="Graphics\ellipse.png" />
     <Content Include="Graphics\fill45.png" />
     <Content Include="Graphics\line45.png" />
     <Content Include="Graphics\Paint.ico" />

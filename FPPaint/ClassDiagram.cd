@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FPPaint.Classes.Page" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="20.75" Y="1.5" Width="1.5" />
+    <Position X="19" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAICgAAAADAEBAAAAAAIAAABEAQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Page.cs</FileName>
@@ -16,14 +16,14 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="FPPaint.Classes.PaintingManager" Collapsed="true">
-    <Position X="22.5" Y="1.5" Width="1.5" />
+    <Position X="20.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAABAAAAAQAEEAAAAAAAAABAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\PaintingManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FPPaint.Classes.PaletteHelper" Collapsed="true">
-    <Position X="17.25" Y="2.5" Width="1.5" />
+    <Position X="22.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAACAAAAAAAA=</HashCode>
       <FileName>Classes\PaletteHelper.cs</FileName>
@@ -51,7 +51,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FPPaint.Forms.NewItemForm" Collapsed="true">
-    <Position X="19" Y="1.5" Width="1.5" />
+    <Position X="17.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAARCAQAgQAQACAAEACAAAAAgAAAAABCAAAAAA=</HashCode>
       <FileName>Forms\NewItemForm.cs</FileName>
@@ -128,20 +128,20 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FPPaint.Program" Collapsed="true">
-    <Position X="19" Y="2.5" Width="1.5" />
+    <Position X="17.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FPPaint.Properties.Resources" Collapsed="true">
-    <Position X="20.75" Y="2.5" Width="1.5" />
+    <Position X="19" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="FPPaint.Properties.Settings" Collapsed="true">
-    <Position X="22.5" Y="2.5" Width="1.5" />
+    <Position X="20.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
