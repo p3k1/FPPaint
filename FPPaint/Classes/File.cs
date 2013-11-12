@@ -21,24 +21,6 @@ namespace FPPaint.Classes
 
         #region Properties
 
-        //public string Path1
-        //{
-        //    get { return Path; }
-        //    set { Path = value; }
-        //}
-
-        //public bool IsFileNew1
-        //{
-        //    get { return IsFileNew; }
-        //    set { IsFileNew = value; }
-        //}
-
-        //public bool IsModified1
-        //{
-        //    get { return IsModified; }
-        //    set { IsModified = value; }
-        //}
-
         public string Name
         {
             get

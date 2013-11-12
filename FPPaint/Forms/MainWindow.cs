@@ -9,6 +9,7 @@ namespace FPPaint.Forms
     public partial class MainWindow : Form
     {
         public static PaintingManager PaintingManager = PaintingManager.GetInstance(new File(""), new Page(800, 600), new Pencil(Color.Black, Color.White));
+        private bool isRightClicked;
 
         public Panel ToolsAndColorsProp
         {
@@ -56,184 +57,16 @@ namespace FPPaint.Forms
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuHelper.ExitActions(this);
-            //if (PaintingManager.File.IsModified)
-            //{
-            //    DialogResult result = MessageBox.Show("File was changed. Do you want to save it?", "Question", MessageBoxButtons.YesNoCancel,
-            //                    MessageBoxIcon.Question);
-            //    if (result == DialogResult.Cancel)
-            //        return;
-            //    if (result == DialogResult.Yes)
-            //        if (!PaintingManager.File.SaveFile(PaintingManager.Page.Picture))
-            //            return;
-
-            //}
-            //Close();
-            //Application.Exit();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (PaintingManager.File.IsModified)
-            {
-                DialogResult result = MessageBox.Show("File was changed. Do you want to save it?", "Question",
-                                                      MessageBoxButtons.YesNoCancel,
-                                                      MessageBoxIcon.Question);
-                if (result == DialogResult.Cancel)
-                    return;
-                if (result == DialogResult.Yes)
-                    PaintingManager.File.SaveFile(PaintingManager.Page.Picture);
-            }
-
-            var newItem = new NewItemForm();
-            if (newItem.ShowDialog() == DialogResult.OK)
-            {
-                Picture.Width = newItem.width;
-                Picture.Height = newItem.height;
-                PaintingManager.Page = new Page(newItem.width, newItem.height);
-                Picture.Image = PaintingManager.Page.Picture;
-                using (Graphics g = Graphics.FromImage(PaintingManager.Page.Picture))
-                    g.Clear(Color.White);
-                Picture.Refresh();
-            }
+            MenuHelper.NewFileActions(this);
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var OpenFile = new OpenFileDialog())
-            {
-                OpenFile.Multiselect = false;
-                OpenFile.Filter = "Bitmaps (*.BMP)|*.bmp";
-                if (OpenFile.ShowDialog() == DialogResult.OK && !String.IsNullOrEmpty(OpenFile.FileName))
-                {
-                    PaintingManager.CreateNewPicture(OpenFile.FileName);
-                    Picture.Height = PaintingManager.Page.Picture.Height;
-                    Picture.Width = PaintingManager.Page.Picture.Width;
-                    Picture.Image = PaintingManager.Page.Picture;
-                    PaintingManager.File.Path = OpenFile.FileName;
-                    Picture.Refresh();
-                }
-            }
-        }
-
-        private void PrimaryColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog c = new ColorDialog();
-            if (c.ShowDialog() == DialogResult.OK)
-            {
-                PaintingManager.CurrentTool.PrimaryColor = c.Color;
-                PrimaryColor.BackColor = c.Color;
-            }
-        }
-
-        private void SecondaryColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog c = new ColorDialog();
-            if (c.ShowDialog() == DialogResult.OK)
-            {
-                PaintingManager.CurrentTool.SecondaryColor = c.Color;
-                SecondaryColor.BackColor = c.Color;
-            }
-        }
-
-        private void Picture_MouseDown(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                if ((PaintingManager.CurrentTool is TwoPointTool) && !PaintingManager.CurrentTool.InUse)
-                {
-                    ((TwoPointTool)PaintingManager.CurrentTool).StartPainting(e.Location);
-                    PaintingManager.File.IsModified = true;
-                }
-                InstantTool currentTool = PaintingManager.CurrentTool as InstantTool;
-                if (currentTool != null)
-                {
-                    currentTool.Paint(PaintingManager.Page.Picture, e.Location.X, e.Location.Y, PaintingManager.CurrentTool.PrimaryColor, PaintingManager.Page.Picture.GetPixel(e.Location.X, e.Location.Y));
-                }
-                MultiPointTool multiPointTool = PaintingManager.CurrentTool as MultiPointTool;
-                if (multiPointTool != null)
-                {
-                    multiPointTool.PointsToDraw.Add(e.Location);
-                }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message + exception.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void Picture_MouseUp(object sender, MouseEventArgs e)
-        {
-            PaintingManager.Page.PrepareToPaint();
-            try
-            {
-                TwoPointTool twoPointTool = PaintingManager.CurrentTool as TwoPointTool;
-                if (twoPointTool != null)
-                {
-                    using (Graphics g = Graphics.FromImage(PaintingManager.Page.Picture))
-                        twoPointTool.Paint(e.Location, g);
-                    Picture.Refresh();
-                    PaintingManager.File.IsModified = true;
-                    PaintingManager.CurrentTool.InUse = false;
-                }
-
-                InstantTool currentTool = PaintingManager.CurrentTool as InstantTool;
-                if (currentTool != null)
-                {
-                    currentTool.Paint(PaintingManager.Page.Picture, e.Location.X,
-                                                                     e.Location.Y,
-                                                                     PaintingManager.CurrentTool.PrimaryColor,
-                                                                     PaintingManager.Page.Picture.GetPixel(
-                                                                         e.Location.X, e.Location.Y));
-                    Picture.Invalidate();
-                }
-
-                MultiPointTool multiPointTool = PaintingManager.CurrentTool as MultiPointTool;
-                if (multiPointTool != null)
-                {
-                    multiPointTool.PointsToDraw.Clear();
-                }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message + exception.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void Picture_Paint(object sender, PaintEventArgs e)
-        {
-            if (PaintingManager.CurrentTool is TwoPointTool && PaintingManager.CurrentTool.InUse)
-            {
-                TwoPointTool tool = PaintingManager.CurrentTool as TwoPointTool;
-                tool.Paint(tool.Temp, e.Graphics);
-                ((PictureBox)sender).Invalidate();
-                PaintingManager.File.IsModified = true;
-            }
-
-            var multiPointTool = PaintingManager.CurrentTool as MultiPointTool;
-            if (multiPointTool != null)
-            {
-                using (Graphics g = Graphics.FromImage(PaintingManager.Page.Picture))
-                {
-                    multiPointTool.Paint(g, (int)Size.Value);
-                }
-            }
-        }
-
-        private void Picture_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (PaintingManager.CurrentTool is TwoPointTool && e.Button == MouseButtons.Left)
-            {
-                ((TwoPointTool) PaintingManager.CurrentTool).Temp = e.Location;
-            }
-            if (PaintingManager.CurrentTool is MultiPointTool && e.Button == MouseButtons.Left)
-            {
-                ((MultiPointTool)PaintingManager.CurrentTool).PointsToDraw.Add(e.Location);
-                Picture.Invalidate();
-            }
-            if (PaintingManager.CurrentTool.InUse && e.Button == MouseButtons.Left)
-            {
-                Picture.Invalidate();
-            }
+            MenuHelper.OpenActions(this);
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -258,38 +91,6 @@ namespace FPPaint.Forms
             Picture.Image = PaintingManager.Page.Picture;
         }
 
-        private void SetLine_Click(object sender, EventArgs e)
-        {
-            PaintingManager.SetCurrentTool(new Line(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor, (int)Size.Value));
-            Picture.Cursor = Cursors.Cross;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            PaintingManager.SetCurrentTool(new Ellipse(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor, (int)Size.Value));
-            Picture.Cursor = Cursors.Cross;
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PaintingManager.File.SaveFile(PaintingManager.Page.Picture);
-        }
-
-        private void SetRubber_Click(object sender, EventArgs e)
-        {
-            PaintingManager.SetCurrentTool(new Rubber(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor));
-        }
-
-        private void SetFill_Click(object sender, EventArgs e)
-        {
-            PaintingManager.SetCurrentTool(new Fill(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor));
-        }
-
         private void rotate90ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PaintingManager.Page.PrepareToPaint();
@@ -298,22 +99,6 @@ namespace FPPaint.Forms
             Picture.Height = tmpWidth;
             PaintingManager.Page.Rotate(RotateFlipType.Rotate270FlipNone);
             Picture.Refresh();
-        }
-
-        private void SetRectangle_Click(object sender, EventArgs e)
-        {
-            PaintingManager.SetCurrentTool(new Classes.Tools.Rectangle(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor, (int)Size.Value));
-            Picture.Cursor = Cursors.Cross;
-        }
-
-        private void Pencil_Click(object sender, EventArgs e)
-        {
-            PaintingManager.SetCurrentTool(new Pencil(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor));
-            Picture.Cursor = Cursors.Cross;
-        }
-
-        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
         }
 
         private void rotate180ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -331,6 +116,190 @@ namespace FPPaint.Forms
             Picture.Height = tmpWidth;
             PaintingManager.Page.Rotate(RotateFlipType.Rotate90FlipNone);
             Picture.Refresh();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaintingManager.File.SaveFile(PaintingManager.Page.Picture);
+        }
+
+        private void PrimaryColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog c = new ColorDialog();
+            if (c.ShowDialog() == DialogResult.OK)
+            {
+                PaintingManager.CurrentTool.PrimaryColor = c.Color;
+                PrimaryColor.BackColor = c.Color;
+            }
+        }
+
+        private void SecondaryColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog c = new ColorDialog();
+            if (c.ShowDialog() == DialogResult.OK)
+            {
+                PaintingManager.CurrentTool.SecondaryColor = c.Color;
+                SecondaryColor.BackColor = c.Color;
+            }
+        }
+
+        private void Picture_MouseDown(object sender, MouseEventArgs e)
+        {
+            isRightClicked = e.Button == MouseButtons.Right;
+            try
+            {
+                if ((PaintingManager.CurrentTool is TwoPointTool) && !PaintingManager.CurrentTool.InUse)
+                {
+                    ((TwoPointTool)PaintingManager.CurrentTool).StartPainting(e.Location);
+                    PaintingManager.File.IsModified = true;
+                }
+                InstantTool currentTool = PaintingManager.CurrentTool as InstantTool;
+                if (currentTool != null)
+                {
+                    currentTool.Paint(PaintingManager.Page.Picture, e.Location.X, e.Location.Y, PaintingManager.CurrentTool.PrimaryColor, PaintingManager.Page.Picture.GetPixel(e.Location.X, e.Location.Y));
+                }
+                MultiPointTool multiPointTool = PaintingManager.CurrentTool as MultiPointTool;
+                if (multiPointTool != null)
+                {
+                    multiPointTool.InUse = true;
+                    multiPointTool.PointsToDraw.Add(e.Location);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message + exception.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Picture_MouseUp(object sender, MouseEventArgs e)
+        {
+            PaintingManager.Page.PrepareToPaint();
+            try
+            {
+                TwoPointTool twoPointTool = PaintingManager.CurrentTool as TwoPointTool;
+                if (twoPointTool != null)
+                {
+                    isRightClicked = e.Button == MouseButtons.Right;
+                    using (Graphics g = Graphics.FromImage(PaintingManager.Page.Picture))
+                        twoPointTool.Paint(e.Location, g, isRightClicked );
+                    Picture.Refresh();
+                    PaintingManager.File.IsModified = true;
+                    PaintingManager.CurrentTool.InUse = false;
+                }
+
+                InstantTool currentTool = PaintingManager.CurrentTool as InstantTool;
+                if (currentTool != null)
+                {
+                    currentTool.Paint(PaintingManager.Page.Picture, e.Location.X,
+                                                                     e.Location.Y,
+                                                                     PaintingManager.CurrentTool.PrimaryColor,
+                                                                     PaintingManager.Page.Picture.GetPixel(
+                                                                         e.Location.X, e.Location.Y));
+                    Picture.Invalidate();
+                    PaintingManager.File.IsModified = true;
+                }
+
+                MultiPointTool multiPointTool = PaintingManager.CurrentTool as MultiPointTool;
+                if (multiPointTool != null && multiPointTool.InUse)
+                {
+                    multiPointTool.PointsToDraw.Clear();
+                    multiPointTool.InUse = false;
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message + exception.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Picture_Paint(object sender, PaintEventArgs e)
+        {
+            if (PaintingManager.CurrentTool is TwoPointTool && PaintingManager.CurrentTool.InUse)
+            {
+                TwoPointTool tool = PaintingManager.CurrentTool as TwoPointTool;
+                tool.Paint(tool.Temp, e.Graphics, isRightClicked);
+                ((PictureBox)sender).Invalidate();
+                PaintingManager.File.IsModified = true;
+            }
+
+            var multiPointTool = PaintingManager.CurrentTool as MultiPointTool;
+            if (multiPointTool != null && multiPointTool.InUse)
+            {
+                using (Graphics g = Graphics.FromImage(PaintingManager.Page.Picture))
+                {
+                    multiPointTool.Paint(g, (int)Size.Value, isRightClicked);
+                    PaintingManager.File.IsModified = true;
+                }
+            }
+        }
+
+        private void Picture_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.isRightClicked = e.Button == MouseButtons.Right;
+            if (PaintingManager.CurrentTool is TwoPointTool && (e.Button == MouseButtons.Left || e.Button == MouseButtons.Right))
+            {
+                ((TwoPointTool) PaintingManager.CurrentTool).Temp = e.Location;
+            }
+            if (PaintingManager.CurrentTool is MultiPointTool && (e.Button == MouseButtons.Left || e.Button == MouseButtons.Right))
+            {
+                ((MultiPointTool)PaintingManager.CurrentTool).PointsToDraw.Add(e.Location);
+                Picture.Invalidate();
+            }
+            if (PaintingManager.CurrentTool.InUse && (e.Button == MouseButtons.Left|| e.Button == MouseButtons.Right))
+            {
+                Picture.Invalidate();
+            }
+        }
+
+        private void SetLine_Click(object sender, EventArgs e)
+        {
+            PaintingManager.SetCurrentTool(new Line(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor, (int)Size.Value));
+            Picture.Cursor = Cursors.Cross;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PaintingManager.SetCurrentTool(new Ellipse(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor, (int)Size.Value));
+            Picture.Cursor = Cursors.Cross;
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void SetRubber_Click(object sender, EventArgs e)
+        {
+            PaintingManager.SetCurrentTool(new Rubber(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor));
+        }
+
+        private void SetFill_Click(object sender, EventArgs e)
+        {
+            PaintingManager.SetCurrentTool(new Fill(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor));
+        }
+
+        
+        private void SetRectangle_Click(object sender, EventArgs e)
+        {
+            PaintingManager.SetCurrentTool(new Classes.Tools.Rectangle(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor, (int)Size.Value));
+            Picture.Cursor = Cursors.Cross;
+        }
+
+        private void Pencil_Click(object sender, EventArgs e)
+        {
+            PaintingManager.SetCurrentTool(new Pencil(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor));
+            Picture.Cursor = Cursors.Cross;
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        }
+
+        private void SetCircle_Click(object sender, EventArgs e)
+        {
+            PaintingManager.SetCurrentTool(new Circle(PaintingManager.CurrentTool.PrimaryColor, PaintingManager.CurrentTool.SecondaryColor, (int)Size.Value));
+            Picture.Cursor = Cursors.Cross;
         }
     }
 }

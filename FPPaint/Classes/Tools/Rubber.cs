@@ -14,7 +14,7 @@ namespace FPPaint.Classes.Tools
         {
         }
 
-        public override void Paint(Graphics graphics, int size)
+        public override void Paint(Graphics graphics, int size, bool isRightClicked)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace FPPaint.Classes.Tools
                 }
                 for (int i = 1; i < PointsToDraw.Count; i++)
                 {
-                    graphics.DrawLine(new Pen(SecondaryColor, size), PointsToDraw[i - 1].X, PointsToDraw[i - 1].Y,
+                    graphics.DrawLine(new Pen(isRightClicked? PrimaryColor : SecondaryColor, size), PointsToDraw[i - 1].X, PointsToDraw[i - 1].Y,
                                       PointsToDraw[i].X, PointsToDraw[i].Y);
                 }
             }

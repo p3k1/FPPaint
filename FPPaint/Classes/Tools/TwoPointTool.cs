@@ -45,7 +45,7 @@ namespace FPPaint.Classes.Tools
             InUse = true;
         }
 
-        public abstract void Paint(Point endPoint, Graphics graphics);
+        public abstract void Paint(Point endPoint, Graphics graphics, bool IsRightClicked);
 
         #endregion
     }

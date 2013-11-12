@@ -11,6 +11,6 @@ namespace FPPaint.Classes.Tools
         {
         }
 
-        public abstract void Paint(Graphics grahpics, int size);
+        public abstract void Paint(Graphics grahpics, int size, bool isRightClicked);
     }
 }

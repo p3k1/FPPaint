@@ -19,7 +19,7 @@ namespace FPPaint.Classes.Tools
         /// </summary>
         /// <param name="endPoint">Ending point of a rectangle.</param>
         /// <param name="graphics">Graphics object.</param>
-        public override void Paint(Point endPoint, Graphics graphics)
+        public override void Paint(Point endPoint, Graphics graphics, bool isRightClicked)
         {
             try
             {
@@ -30,19 +30,19 @@ namespace FPPaint.Classes.Tools
                 }
                 if (StartingPoint.Value.X > endPoint.X && StartingPoint.Value.Y > endPoint.Y)
                 {
-                    graphics.DrawRectangle(new Pen(PrimaryColor, Size), endPoint.X, endPoint.Y, (StartingPoint.Value.X - endPoint.X), (StartingPoint.Value.Y - endPoint.Y));
+                    graphics.DrawRectangle(new Pen(isRightClicked ? SecondaryColor: PrimaryColor, Size), endPoint.X, endPoint.Y, (StartingPoint.Value.X - endPoint.X), (StartingPoint.Value.Y - endPoint.Y));
                 }
                 if (StartingPoint.Value.X < endPoint.X && StartingPoint.Value.Y > endPoint.Y)
                 {
-                    graphics.DrawRectangle(new Pen(PrimaryColor, Size), StartingPoint.Value.X, endPoint.Y, (endPoint.X - StartingPoint.Value.X), (StartingPoint.Value.Y - endPoint.Y));
+                    graphics.DrawRectangle(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), StartingPoint.Value.X, endPoint.Y, (endPoint.X - StartingPoint.Value.X), (StartingPoint.Value.Y - endPoint.Y));
                 }
                 if (StartingPoint.Value.X > endPoint.X && StartingPoint.Value.Y < endPoint.Y)
                 {
-                    graphics.DrawRectangle(new Pen(PrimaryColor, Size), endPoint.X, StartingPoint.Value.Y, (StartingPoint.Value.X - endPoint.X), (endPoint.Y - StartingPoint.Value.Y));
+                    graphics.DrawRectangle(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), endPoint.X, StartingPoint.Value.Y, (StartingPoint.Value.X - endPoint.X), (endPoint.Y - StartingPoint.Value.Y));
                 }
                 else
                 {
-                    graphics.DrawRectangle(new Pen(PrimaryColor, Size), StartingPoint.Value.X, StartingPoint.Value.Y, (endPoint.X - StartingPoint.Value.X), (endPoint.Y - StartingPoint.Value.Y));
+                    graphics.DrawRectangle(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), StartingPoint.Value.X, StartingPoint.Value.Y, (endPoint.X - StartingPoint.Value.X), (endPoint.Y - StartingPoint.Value.Y));
                 }
             }
             catch (Exception ex)

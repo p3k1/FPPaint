@@ -25,7 +25,7 @@ namespace FPPaint.Classes.Tools
         /// </summary>
         /// <param name="endPoint">Point ending the line.</param>
         /// <param name="graphics">Graphics object.</param>
-        public override void Paint(Point endPoint, Graphics graphics)
+        public override void Paint(Point endPoint, Graphics graphics, bool isRightClicked)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace FPPaint.Classes.Tools
                     MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                graphics.DrawLine(new Pen(PrimaryColor, Size), (PointF)StartingPoint, endPoint);
+                graphics.DrawLine(new Pen(isRightClicked ? SecondaryColor : PrimaryColor, Size), (PointF)StartingPoint, endPoint);
             }
             catch (InvalidOperationException ex)
             {

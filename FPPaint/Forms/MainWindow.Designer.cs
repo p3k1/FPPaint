@@ -254,6 +254,7 @@
             this.SetCircle.Size = new System.Drawing.Size(45, 45);
             this.SetCircle.TabIndex = 4;
             this.SetCircle.UseVisualStyleBackColor = true;
+            this.SetCircle.Click += new System.EventHandler(this.SetCircle_Click);
             // 
             // SetRectangle
             // 

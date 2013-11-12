@@ -29,5 +29,59 @@ namespace FPPaint.Classes
             Application.Exit();
         }
 
+        public static void NewFileActions(MainWindow mainWindow)
+        {
+            if (PaintingManager.File.IsModified)
+            {
+                DialogResult result = MessageBox.Show("File was changed. Do you want to save it?", "Question",
+                                                      MessageBoxButtons.YesNoCancel,
+                                                      MessageBoxIcon.Question);
+                if (result == DialogResult.Cancel)
+                    return;
+                if (result == DialogResult.Yes)
+                    PaintingManager.File.SaveFile(PaintingManager.Page.Picture);
+            }
+
+            var newItem = new NewItemForm();
+            if (newItem.ShowDialog() == DialogResult.OK)
+            {
+                mainWindow.PictureProp.Width = newItem.width;
+                mainWindow.PictureProp.Height = newItem.height;
+                PaintingManager.Page = new Page(newItem.width, newItem.height);
+                mainWindow.PictureProp.Image = PaintingManager.Page.Picture;
+                using (Graphics g = Graphics.FromImage(PaintingManager.Page.Picture))
+                    g.Clear(Color.White);
+                mainWindow.PictureProp.Refresh();
+            }
+        }
+
+        public static void OpenActions(MainWindow mainWindow)
+        {
+            if (PaintingManager.File.IsModified)
+            {
+                DialogResult result = MessageBox.Show("File was changed. Do you want to save it?", "Question",
+                                                      MessageBoxButtons.YesNoCancel,
+                                                      MessageBoxIcon.Question);
+                if (result == DialogResult.Cancel)
+                    return;
+                if (result == DialogResult.Yes)
+                    PaintingManager.File.SaveFile(PaintingManager.Page.Picture);
+            }
+
+            using (var OpenFile = new OpenFileDialog())
+            {
+                OpenFile.Multiselect = false;
+                OpenFile.Filter = "Bitmaps (*.BMP)|*.bmp";
+                if (OpenFile.ShowDialog() == DialogResult.OK && !String.IsNullOrEmpty(OpenFile.FileName))
+                {
+                    PaintingManager.CreateNewPicture(OpenFile.FileName);
+                    mainWindow.PictureProp.Height = PaintingManager.Page.Picture.Height;
+                    mainWindow.PictureProp.Width = PaintingManager.Page.Picture.Width;
+                    mainWindow.PictureProp.Image = PaintingManager.Page.Picture;
+                    PaintingManager.File.Path = OpenFile.FileName;
+                    mainWindow.PictureProp.Refresh();
+                }
+            }
+        }
     }
 }

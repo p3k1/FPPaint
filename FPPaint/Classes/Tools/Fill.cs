@@ -26,6 +26,7 @@ namespace FPPaint.Classes.Tools
             FloodFill(bitmap, x, y, newColor);
             Cursor.Current = previous;
         }
+
         private void FloodFill(Bitmap bitmap, int x, int y, Color color)
         {
             if (bitmap.GetPixel(x, y) == color)

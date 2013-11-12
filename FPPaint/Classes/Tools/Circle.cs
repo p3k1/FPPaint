@@ -14,7 +14,7 @@ namespace FPPaint.Classes.Tools
         {
         }
 
-        public override void Paint(Point endPoint, Graphics graphics)
+        public override void Paint(Point endPoint, Graphics graphics, bool isRightClicked)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace FPPaint.Classes.Tools
                     MessageBox.Show("Null graphics!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                graphics.DrawEllipse(new Pen(PrimaryColor, Size), StartingPoint.Value.X, StartingPoint.Value.Y, Math.Min(endPoint.X, endPoint.Y), Math.Min(endPoint.X, endPoint.Y));
+                graphics.DrawEllipse(new Pen(isRightClicked ? SecondaryColor: PrimaryColor , Size), StartingPoint.Value.X, StartingPoint.Value.Y, Math.Min(endPoint.X, endPoint.Y), Math.Min(endPoint.X, endPoint.Y));
             }
             catch (InvalidOperationException ex)
             {

@@ -40,7 +40,7 @@ namespace FPPaint.Classes
             CurrentTool = newTool;
         }
 
-        public void CreateNewPicture(string path)
+        public static void CreateNewPicture(string path)
         {
             if (!string.IsNullOrEmpty(path))
             {
